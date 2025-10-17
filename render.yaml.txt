@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: FOSCHI-IA
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn FOSCHIAI_V43:app --workers 3 --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+    disk:
+      name: persistent
+      mountPath: /mnt/data
+      sizeGB: 1

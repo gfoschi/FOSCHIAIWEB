@@ -1,1 +1,1 @@
-web: python FOSCHIAI_V43.py
+web: gunicorn FOSCHIAI_V43:app --workers 3 --bind 0.0.0.0:$PORT
